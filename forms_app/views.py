@@ -23,7 +23,7 @@ def edit(request, pk):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-        return redirect('detail', pk=post.pk)
+        return redirect('index')
 
     else:
         form = RestaurantForm(instance=post)
