@@ -7,5 +7,5 @@ urlpatterns = [
     path('form/', views.food, name='form'),
     path('detail/<int:pk>/', views.detail, name='detail'),
     path('edit/<int:pk>/', views.edit, name='edit'),
-
+    path('add/', views.add, name='add'),
 ]

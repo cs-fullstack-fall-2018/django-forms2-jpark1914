@@ -16,6 +16,20 @@ def detail(request, pk):
     post = get_object_or_404(FormModel, pk=pk)
     return render(request, 'forms_app/food_detail.html', {'post': post})
 
+def add(request):
+    if request.method == 'POST':
+        form = RestaurantForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+        return redirect('detail', pk=post.pk)
+    else:
+        form = RestaurantForm()
+
+    return render(request, 'forms_app/add.html',{'form':form})
+
+
+
 def edit(request, pk):
     post = get_object_or_404(FormModel, pk=pk)
     if request.method == 'POST':
